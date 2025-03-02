@@ -153,7 +153,7 @@ server <- function(input, output, session) {
       Interets = paste(input$interests, collapse = ", "),
       Culture = input$typeculture,
       "Batiment agricoles" = input$batimentagricole,
-      Adresse = "Une adresse",
+      Adresse = if (!is.null(selected_marker())) paste("Bâtiment/parcelle selectionné: Longitude =", round(selected_marker()$lng, 4)," Latitude =", round(selected_marker()$lat, 4)) else "Aucun bâtiment/parcelle selectionné sur la carte",
       Fonction = input$fonction,
       Fichier = if (is.null(input$file1)) "Aucun fichier téléchargé." else paste("Nom du fichier téléchargé :", input$file1$name),
       stringsAsFactors = FALSE
